@@ -10,7 +10,7 @@ public class Menu {
 
     public void pilihan(int x) {
         Scanner scan = new Scanner(System.in);
-        int i;
+        int i,pilsave;
         int count=0;
         double a,b,c,d;
         long start,finish,timeE;
@@ -219,6 +219,12 @@ public class Menu {
                 m = m.solproc1();
                 m = m.solproc2();
                 m = m.solproc3();
+
+                Solver n = new Solver(1);
+                n.isiArr(a, b, c, d);
+                n = n.solproc1();
+                n = n.solproc2n2();
+                n = n.solproc3n2();
                 finish = System.currentTimeMillis();
                 timeE = finish-start;
 
@@ -231,6 +237,13 @@ public class Menu {
                     }
                 }
 
+                for (i = 0; i<1536;i++) {
+                    if (n.sols[i][0]==24) {
+                        System.out.println(n.solstype[i]);
+                        count++;
+                    }
+                }
+
                 if (count !=0) {
                     System.out.println("Banyaknya solusi adalah " + count);
                 }
@@ -239,6 +252,28 @@ public class Menu {
                 }
 
                 System.out.println("Time Elapsed : " + timeE + " ms");
+
+                System.out.println();
+
+                System.out.println("Apakah ingin menyimpan solusi dalam file?\n1.Ya\n2.Tidak");
+                System.out.print("Pilihan: ");
+
+                pilsave = scan.nextInt();
+                while ((pilsave<1)||(pilsave>2)) {
+                    System.out.println("Masukan tidak sesuai!");
+                    System.out.print("Pilihan: ");
+                    pilsave = scan.nextInt();
+                }
+
+                if (pilsave == 1) {
+                    String filename;
+                    System.out.print("Masukkan nama file yang ingin dibuat (dalam .txt): ");
+                    filename = scan.next();
+                    IO.createFile(filename);
+                    IO.outputFileSolusi(a,b,c,d,m,n, filename);
+                }
+
+                System.out.println();
                 break;
             case 2:
                 System.out.println("!!!RANDOM!!!");
@@ -259,6 +294,12 @@ public class Menu {
                 q = q.solproc1();
                 q = q.solproc2();
                 q = q.solproc3();
+
+                Solver r = new Solver(1);
+                r.isiArr(a, b, c, d);
+                r = r.solproc1();
+                r = r.solproc2n2();
+                r = r.solproc3n2();
                 finish = System.currentTimeMillis();
                 timeE = finish-start;
 
@@ -267,6 +308,13 @@ public class Menu {
                 for (i = 0; i<1536;i++) {
                     if (q.sols[i][0]==24) {
                         System.out.println(q.solstype[i]);
+                        count++;
+                    }
+                }
+
+                for (i = 0; i<1536;i++) {
+                    if (r.sols[i][0]==24) {
+                        System.out.println(r.solstype[i]);
                         count++;
                     }
                 }
@@ -283,20 +331,21 @@ public class Menu {
                 System.out.println();
 
                 System.out.println("Apakah ingin menyimpan solusi dalam file?\n1.Ya\n2.Tidak");
-                System.out.print("Pilihan :");
+                System.out.print("Pilihan: ");
 
-                int pilsave;
                 pilsave = scan.nextInt();
                 while ((pilsave<1)||(pilsave>2)) {
                     System.out.println("Masukan tidak sesuai!");
-                    System.out.print("Pilihan :");
+                    System.out.print("Pilihan: ");
                     pilsave = scan.nextInt();
                 }
 
                 if (pilsave == 1) {
                     String filename;
+                    System.out.print("Masukkan nama file yang ingin dibuat (dalam .txt): ");
                     filename = scan.next();
-                    System.out.println("user.dir");;
+                    IO.createFile(filename);
+                    IO.outputFileSolusi(a,b,c,d,q,r, filename);
                 }
 
                 System.out.println();

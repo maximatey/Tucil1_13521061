@@ -22,6 +22,10 @@ public class Solver{
                 this.sols = new double[1536][1];
                 this.solstype = new String[1536];
                 break;
+            case 5:
+                this.sols = new double[384][2];
+                this.solstype = new String[768];
+                break;
         }
     }
 
@@ -229,5 +233,51 @@ public class Solver{
             }
             System.out.print("]\n");
         }
+    }
+
+    public Solver solproc2n2(){
+        Solver mtemp;
+        mtemp = new Solver(5);
+        for (int i = 0; i<96; i++){
+            mtemp.sols[4*i][0] = this.sols[i][0];
+            mtemp.sols[4*i][1] = this.sols[i][1] + this.sols[i][2];
+            mtemp.solstype[8*i] = this.solstype[i];
+            mtemp.solstype[8*i+1] = "(" +  this.sols[i][1] + " + " + this.sols[i][2] +")";
+
+            mtemp.sols[4*i+1][0] = this.sols[i][0];
+            mtemp.sols[4*i+1][1] = this.sols[i][1] - this.sols[i][2];
+            mtemp.solstype[8*i+2] = this.solstype[i];
+            mtemp.solstype[8*i+3] = "(" +  this.sols[i][1] + " - " + this.sols[i][2] +")";
+
+            mtemp.sols[4*i+2][0] = this.sols[i][0];
+            mtemp.sols[4*i+2][1] = this.sols[i][1] * this.sols[i][2];
+            mtemp.solstype[8*i+4] = this.solstype[i];
+            mtemp.solstype[8*i+5] = "(" +  this.sols[i][1] + " * " + this.sols[i][2] +")";
+
+            mtemp.sols[4*i+3][0] = this.sols[i][0];
+            mtemp.sols[4*i+3][1] = this.sols[i][1] / this.sols[i][2];
+            mtemp.solstype[8*i+6] = this.solstype[i];
+            mtemp.solstype[8*i+7] = "(" +  this.sols[i][1] + " / " + this.sols[i][2] +")";
+        }
+        return mtemp;
+    }
+
+    public Solver solproc3n2(){
+        Solver mtemp;
+        mtemp = new Solver(4);
+        for (int i = 0; i<384; i++){
+            mtemp.sols[4*i][0] = this.sols[i][0]+this.sols[i][1];
+            mtemp.solstype[4*i] = "(" +  this.solstype[2*i] + " + " + this.solstype[2*i+1] +")";
+
+            mtemp.sols[4*i+1][0] = this.sols[i][0]-this.sols[i][1];
+            mtemp.solstype[4*i+1] = "(" +  this.solstype[2*i] + " - " + this.solstype[2*i+1] +")";
+
+            mtemp.sols[4*i+2][0] = this.sols[i][0]*this.sols[i][1];
+            mtemp.solstype[4*i+2] = "(" +  this.solstype[2*i] + " * " + this.solstype[2*i+1] +")";
+
+            mtemp.sols[4*i+3][0] = this.sols[i][0]/this.sols[i][1];
+            mtemp.solstype[4*i+3] = "(" +  this.solstype[2*i] + " / " + this.solstype[2*i+1] +")";
+        }
+        return mtemp;
     }
 }
