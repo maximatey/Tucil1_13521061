@@ -24,7 +24,9 @@ Program dijalankan pada Java 19.
 
 1. Ubah directory terminal menjadi ../Tucil1_13521061
 2. Tekan Run pada file main.java
+
 ![image](https://user-images.githubusercontent.com/46923948/213658595-cf1d7ee6-a979-456f-9f62-b44d0d300041.png)
+
 3. Program akan jalan pada terminal
 
 Catatan : Input keyboard untuk program hanya menerima A, 2, 3, 4, 5, 6, 7, 8, 9, 10, J, Q, K
