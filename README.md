@@ -14,6 +14,8 @@ Permainan Kartu 24 biasa dimainkan dengan menggunakan kartu remi. Kartu remi ter
 
 Pengubahan nilai dilakukan dengan menggunakan operasi dasar matematika, yaitu penjumlahan, pengurangan, perkalian, divisi dan tanda kurung. Setiap kartu harus digunakan sekali dan urutan penggunaannya bebas.
 
+Program ini tidak menangani solusi-solusi yang memiliki kemiripan.
+
 Program dijalankan pada Java 19.
 
 # Cara menggunakan/menjalankan program
@@ -24,5 +26,6 @@ Program dijalankan pada Java 19.
 3. Program akan jalan pada terminal
 
 Catatan : Input keyboard untuk program hanya menerima A, 2, 3, 4, 5, 6, 7, 8, 9, 10, J, Q, K
+
 
 
