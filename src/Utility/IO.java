@@ -36,7 +36,7 @@ public class IO {
       }
     }
     
-    public static void outputFileSolusi(Double a, Double b, Double c, Double d, Solver m, Solver n, String nama){
+    public static void outputFileSolusi(Double a, Double b, Double c, Double d, Solver p, Solver k, Solver q, Solver o, Solver l, String nama){
         int i,count=0;
         String s,aa,bb,cc,dd,sabcd;
         try {
@@ -50,15 +50,28 @@ public class IO {
             write.write("\n");
 
             for (i = 0; i<1536;i++){
-                if (m.sols[i][0]==24) {
-                    write.write(m.solstype[i]);
-                    write.write("\n");
-                    count++;
-                }
-            }
-            for (i = 0; i<1536;i++){
-              if (n.sols[i][0]==24) {
-                  write.write(n.solstype[i]);
+              if (p.sols[i][0]==24) {
+                  write.write(p.solstype[i]);
+                  write.write("\n");
+                  count++;
+              }
+              if (k.sols[i][0]==24) {
+                  write.write(k.solstype[i]);
+                  write.write("\n");
+                  count++;
+              }
+              if (q.sols[i][0]==24) {
+                  write.write(q.solstype[i]);
+                  write.write("\n");
+                  count++;
+              }
+              if (o.sols[i][0]==24) {
+                  write.write(o.solstype[i]);
+                  write.write("\n");
+                  count++;
+              }
+              if (l.sols[i][0]==24) {
+                  write.write(l.solstype[i]);
                   write.write("\n");
                   count++;
               }

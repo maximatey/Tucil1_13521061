@@ -15,6 +15,7 @@ public class Menu {
         double a,b,c,d;
         long start,finish,timeE;
         boolean kartuValid;
+        Solver m,n,q,r,p,o,k,l;
         switch (x) {
             case 1:
                 count=0;
@@ -213,34 +214,51 @@ public class Menu {
                         System.out.println("Masukan tidak sesuai!");
                     }
                 }
-
-                Solver m = new Solver(1);
+                
+                m = new Solver(1);
                 m.isiArr(a,b,c,d);
-                start = System.currentTimeMillis();
-                m = m.solproc1();
-                m = m.solproc2();
-                m = m.solproc3();
 
-                Solver n = new Solver(1);
-                n.isiArr(a, b, c, d);
-                n = n.solproc1();
-                n = n.solproc2n2();
-                n = n.solproc3n2();
+                start = System.currentTimeMillis();
+
+                n = m.solproc1();
+                n = n.solproc2();
+                p = n.solproc3();
+                k = n.solproc3v2();
+
+                q = m.solproc1();
+                q = q.solproc2n2();
+                q = q.solproc3n2();
+
+                r = m.solproc1n3();
+                r = r.solproc2n3();
+                o = r.solproc3();
+                l = r.solproc3v2();
+
+                
                 finish = System.currentTimeMillis();
                 timeE = finish-start;
 
                 System.out.println();
 
                 for (i = 0; i<1536;i++) {
-                    if (m.sols[i][0]==24) {
-                        System.out.println(m.solstype[i]);
+                    if (p.sols[i][0]==24) {
+                        System.out.println(p.solstype[i]);
                         count++;
                     }
-                }
-
-                for (i = 0; i<1536;i++) {
-                    if (n.sols[i][0]==24) {
-                        System.out.println(n.solstype[i]);
+                    if (k.sols[i][0]==24) {
+                        System.out.println(k.solstype[i]);
+                        count++;
+                    }
+                    if (q.sols[i][0]==24) {
+                        System.out.println(q.solstype[i]);
+                        count++;
+                    }
+                    if (o.sols[i][0]==24) {
+                        System.out.println(o.solstype[i]);
+                        count++;
+                    }
+                    if (l.sols[i][0]==24) {
+                        System.out.println(l.solstype[i]);
                         count++;
                     }
                 }
@@ -271,7 +289,7 @@ public class Menu {
                     System.out.print("Masukkan nama file yang ingin dibuat (dalam .txt): ");
                     filename = scan.next();
                     IO.createFile(filename);
-                    IO.outputFileSolusi(a,b,c,d,m,n, filename);
+                    IO.outputFileSolusi(a,b,c,d,p,k,q,o,l, filename);
                 }
 
                 System.out.println();
@@ -289,33 +307,50 @@ public class Menu {
                 System.out.println();
                 System.out.println(a + " " + b + " " + c + " " + d);
 
-                Solver q = new Solver(1);
-                q.isiArr(a,b,c,d);
-                start = System.currentTimeMillis();
-                q = q.solproc1();
-                q = q.solproc2();
-                q = q.solproc3();
+                m = new Solver(1);
+                m.isiArr(a,b,c,d);
 
-                Solver r = new Solver(1);
-                r.isiArr(a, b, c, d);
-                r = r.solproc1();
-                r = r.solproc2n2();
-                r = r.solproc3n2();
+                start = System.currentTimeMillis();
+
+                n = m.solproc1();
+                n = n.solproc2();
+                p = n.solproc3();
+                k = n.solproc3v2();
+
+                q = m.solproc1();
+                q = q.solproc2n2();
+                q = q.solproc3n2();
+
+                r = m.solproc1n3();
+                r = r.solproc2n3();
+                o = r.solproc3();
+                l = r.solproc3v2();
+
+                
                 finish = System.currentTimeMillis();
                 timeE = finish-start;
 
                 System.out.println();
 
                 for (i = 0; i<1536;i++) {
+                    if (p.sols[i][0]==24) {
+                        System.out.println(p.solstype[i]);
+                        count++;
+                    }
+                    if (k.sols[i][0]==24) {
+                        System.out.println(k.solstype[i]);
+                        count++;
+                    }
                     if (q.sols[i][0]==24) {
                         System.out.println(q.solstype[i]);
                         count++;
                     }
-                }
-
-                for (i = 0; i<1536;i++) {
-                    if (r.sols[i][0]==24) {
-                        System.out.println(r.solstype[i]);
+                    if (o.sols[i][0]==24) {
+                        System.out.println(o.solstype[i]);
+                        count++;
+                    }
+                    if (l.sols[i][0]==24) {
+                        System.out.println(l.solstype[i]);
                         count++;
                     }
                 }
@@ -346,7 +381,7 @@ public class Menu {
                     System.out.print("Masukkan nama file yang ingin dibuat (dalam .txt): ");
                     filename = scan.next();
                     IO.createFile(filename);
-                    IO.outputFileSolusi(a,b,c,d,q,r, filename);
+                    IO.outputFileSolusi(a,b,c,d,p,k,q,o,l, filename);
                 }
 
                 System.out.println();
