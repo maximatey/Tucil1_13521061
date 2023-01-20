@@ -2,7 +2,9 @@
 
 # Identitas
 Nama : Alex Sander
+
 NIM : 13521061
+
 Program ini dibuat untuk memenuhi tugas kecil 1 mata kuliah Strategi Algoritma.
 
 # Deskripsi Program
