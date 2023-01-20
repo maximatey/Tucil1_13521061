@@ -19,6 +19,7 @@ public class Menu {
             case 1:
                 count=0;
                 kartuValid = true;
+                System.out.println("Masukkan 4 kartu yang digunakan!");
                 a = scan.next().charAt(0);
                     if ((a > 49) && (a <58)) {
                         a = a-48;
